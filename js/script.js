@@ -21,11 +21,16 @@ const app = new Vue({
                 .then((res)=>{
                     this.emails.push(res.data.response);
                     console.log(this.emails);
-                })
+                });
             };
-            this.loading = false;
-            console.log("------>", this.loading);
+            this.waiting();
         },
+        waiting(){
+            setTimeout(()=>{
+                this.loading = false;
+                console.log("------>", this.loading);
+            }, 2000)
+        }
     },
 
     mounted(){
