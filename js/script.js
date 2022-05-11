@@ -11,6 +11,7 @@ const app = new Vue({
     data: {
         emails: [],
         totalNumberOfEmails: 10,
+        loading: true,
     },
 
     methods: {
@@ -21,8 +22,10 @@ const app = new Vue({
                     this.emails.push(res.data.response);
                     console.log(this.emails);
                 })
-            }
-        }
+            };
+            this.loading = false;
+            console.log("------>", this.loading);
+        },
     },
 
     mounted(){
