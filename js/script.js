@@ -11,7 +11,7 @@ const app = new Vue({
     data: {
         emails: [],
         totalNumberOfEmails: 10,
-        loading: true,
+        loading: false,
     },
 
     methods: {
@@ -20,17 +20,15 @@ const app = new Vue({
                 axios.get("https://flynn.boolean.careers/exercises/api/random/mail")
                 .then((res)=>{
                     this.emails.push(res.data.response);
-                    console.log(this.emails);
+                    // console.log(this.emails);
+
+                    if(this.totalNumberOfEmails == this.emails.length){
+                        this.loading = true;
+                        // console.log("------>", this.loading);
+                    };
                 });
             };
-            this.waiting();
         },
-        waiting(){
-            setTimeout(()=>{
-                this.loading = false;
-                console.log("------>", this.loading);
-            }, 2000)
-        }
     },
 
     mounted(){

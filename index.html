@@ -18,20 +18,9 @@
 <body>
     
     <div id="app" class="container">
-
-        <div
-            class="row"
-            v-if="loading">
-                <div class="col-xs-4 d-flex justify-content-center">
-                    <div class="well">
-                        <i class="fas fa-circle-notch"></i>
-                    </div>
-                </div>
-        </div>
-
         <div 
             class="row"
-            v-else>
+            v-if="loading">
             <h2>Favorisca una email casuale</h2>
             <ul>
                 <li 
@@ -40,6 +29,16 @@
                         <a href="#">{{email}}</a>
                 </li>
             </ul>
+        </div>
+
+        <div
+            v-else
+            class="row">
+                <div class="col-xs-4 d-flex justify-content-center">
+                    <div class="well">
+                        <i class="fas fa-circle-notch"></i>
+                    </div>
+                </div>
         </div>
     </div>
 
